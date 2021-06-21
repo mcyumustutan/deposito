@@ -1,0 +1,10 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+ 
+@import './dashboard.css';
+.btn-primary:focus,
+.btn-primary:active {
+  box-shadow: none !important;
+  outline: 0px !important;
+}

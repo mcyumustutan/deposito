@@ -1,0 +1,39 @@
+.status-cancelled {
+    @apply bg-red-700 text-white rounded text-xs py-1 px-2
+}
+
+.status-waiting {
+    @apply bg-blue-700 text-white rounded text-xs py-1 px-2
+}
+
+.status-success {
+    @apply bg-green-700 text-white rounded text-xs py-1 px-2
+}
+
+.p-datatable,
+.p-datatable th,
+.p-datatable-scrollable,
+.p-datatable-header,
+.p-datatable-thead,
+.p-datatable-tbody,
+.p-paginator {
+    @apply bg-white #{!important};
+
+}
+
+.p-datatable-thead,
+.p-datatable-tbody {
+    @apply text-sm #{!important}
+}
+
+.p-datatable tr {
+    @apply bg-transparent #{!important};
+}
+
+.p-column-title {}
+
+.p-sortable-column {}
+
+.p-sortable-column {
+    @apply bg-transparent #{!important};
+}
