@@ -89,103 +89,10 @@
   </nav>
 
 
-  @if($client["status"]=='waiting')
-  <div class="container mx-auto lg:px-40 px-4 mb-8">
-    <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded" role="alert">
-      <strong class="font-bold">Hello!</strong>
-      <span class="block sm:inline">Please check information summary! Because, your paying for deposit.</span>
-      <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
+   
 
-      </span>
-    </div>
-  </div>
-
-  @elseif($client["status"]=='cancelled')
-  <div class="container mx-auto lg:px-40 px-4 mb-8">
-    <div class="bg-yellow-100 border border-yellow-400 text-yellow-700 px-4 py-3 rounded" role="alert">
-      <span class="font-semibold mr-2 text-left flex-auto p-4">Your deposit cancelled!</span>
-
-    </div>
-  </div>
-  @endif
-
-  <div class="container mx-auto lg:px-40 px-4">
-    <div class="flex flex-wrap ">
-      <div class="w-full sm:w-1/1 lg:w-3/6 px-3 mb-6">
-
-        <div class="col-span-1 lg:col-span-4 order-first lg:order-last mb-4">
-          <h4 class="text-3xl text-gray-700 mb-5">Your Summary</h4>
-          <div class="p-10 rounded-md shadow-md bg-white">
-            <div class="grid grid-cols-8 overflow-hidden col-gap-6 mb-5">
-              <div class="col-span-5">
-
-                <p class="text-sm truncate text-gray-600">Name:</p>
-                <p class=" mb-4 text-gray-800">{{$client["fullname"]}}</p>
-                <p class="text-sm truncate text-gray-600">Phone:</p>
-                <p class=" mb-4 text-gray-800">{{$client["phone"]}}</p>
-                <p class="text-sm truncate text-gray-600">Email:</p>
-                <p class=" mb-4 text-gray-800">{{$client["email"]}}</p>
-                <p class="text-sm truncate text-gray-600">Address:</p>
-                <p class=" mb-4 text-gray-800">{{$client["email"]}}</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-span-1 lg:col-span-4 order-first lg:order-last">
-          <h4 class="text-3xl text-gray-700 mb-5">Tour Summary</h4>
-          <div class="p-10 rounded-md shadow-md bg-white">
-            <div class="grid grid-cols-8 overflow-hidden col-gap-6 mb-5">
-              <div class="col-span-5 text-sm truncate text-green-600">
-
-
-                {!!$client["note"]!!}
-
-              </div>
-            </div>
-
-
-          </div>
-        </div>
-      </div>
-
-      <div class="w-full sm:w-1/1 lg:w-3/6 px-3 mb-6 mb-4">
-        <h4 class="text-3xl text-gray-700 mb-5">Deposit Payment</h4>
-        <div class="lg:p-10 rounded-md shadow-md bg-white">
-
-          @if($client["status"]=='success')
-          <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded" role="alert">
-            <span class="font-semibold mr-2 text-left flex-auto p-4">Your deposit already payed!</span>
-
-          </div>
-          @endif
-
-          @if(session()->has('error'))
-          <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative block" role="alert">
-            {{ session()->get('error') }}
-          </div>
-          @endif
-
-
-          @if(session()->has('success'))
-          <div class="flex items-center bg-blue-500 text-white text-sm font-bold px-4 py-3" role="alert">
-            {{ session()->get('success') }}
-          </div>
-          @endif
-
-
-
-          <div id="iyzipay-checkout-form" class="responsive my-5"></div>
-
-        </div>
-      </div>
-
-
-
-      <div class="w-full md:w-2/3 px-3 mb-6 md:mb-0">
-
-      </div>
-    </div>
+  <div class="container mx-auto lg:px-40 px-4 h-100">
+    
   </div>
 
 
@@ -297,7 +204,7 @@
       return false;
     }
   </script>
-  {!!$form!!}
+  
 
 </body>
 

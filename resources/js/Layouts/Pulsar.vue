@@ -31,7 +31,27 @@
 
     <!-- mysidebar -->
     <div
-      class="mysidebar bg-gray-700 text-blue-800 w-60 space-y-6 py-3 inset-y-0 left-0 transform -translate-x-full md:translate-x-0 transition duration-200 ease-in-out shadow-inner overflow-y-auto fixed top-0 z-40"
+      class="
+        mysidebar
+        bg-gray-700
+        text-blue-800
+        w-60
+        space-y-6
+        py-3
+        inset-y-0
+        left-0
+        transform
+        -translate-x-full
+        md:translate-x-0
+        transition
+        duration-200
+        ease-in-out
+        shadow-inner
+        overflow-y-auto
+        fixed
+        top-0
+        z-40
+      "
     >
       <!-- logo -->
       <a
@@ -64,7 +84,21 @@
     <div class="flex-1 xl:pl-60 lg:pl-60 md:pl-60 sm:pl-none">
       <div
         v-if="title"
-        class="px-5 py-5 bg-gray-200 h-14 bg-opacity-75 m-0 shadow-md text-xl font-bold text-gray-800 justify-end flex gap-4"
+        class="
+          px-5
+          py-5
+          bg-gray-200
+          h-14
+          bg-opacity-75
+          m-0
+          shadow-md
+          text-xl
+          font-bold
+          text-gray-800
+          justify-end
+          flex
+          gap-4
+        "
       >
         <a class="" title="Siteye Git" href=""
           ><i class="pi pi-external-link"></i
@@ -124,21 +158,6 @@ export default {
           label: "Ana Ekran",
         },
         {
-          route: "test",
-          icon: PrimeIcons.APPLE,
-          label: "Test",
-        },
-        {
-          route: "test3",
-          icon: PrimeIcons.ANDROID,
-          label: "Test 3",
-        },
-        {
-          route: "page.index",
-          icon: PrimeIcons.LIST,
-          label: "Pages",
-        },
-        {
           route: "client.index",
           icon: PrimeIcons.USER,
           label: "Müşteriler",
@@ -155,4 +174,22 @@ export default {
     FlashMessages,
   },
 };
+
+/*
+{
+  route: "test",
+  icon: PrimeIcons.APPLE,
+  label: "Test",
+},
+{
+  route: "test3",
+  icon: PrimeIcons.ANDROID,
+  label: "Test 3",
+},
+{
+  route: "page.index",
+  icon: PrimeIcons.LIST,
+  label: "Pages",
+},
+*/
 </script>

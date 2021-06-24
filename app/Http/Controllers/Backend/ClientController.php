@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Inertia\Inertia;
 use App\Models\Client;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Crypt;
 
 class ClientController extends Controller
 {
@@ -74,8 +75,12 @@ class ClientController extends Controller
      */
     public function show(Client $client)
     {
+        $crypted = Crypt::encryptString($client->id, false);
+
         return Inertia::render('Backend/Client/Show', [
             'client' =>  $client,
+            'url' => env('APP_URL') . "payment/" . $crypted,
+            'decrypted' => Crypt::decryptString($crypted)
         ]);
     }
 
@@ -117,9 +122,14 @@ class ClientController extends Controller
         //
     }
 
+    public function welcome()
+    {
+        return view('Frontend/Client/Welcome');
+    }
+
     public function order(Request $r, $id)
     {
-
+        $id = Crypt::decryptString($id);
         $Client = Client::find($id)->only(["id", "fullname", "name", "surname", "email", "phone", "city", "country", "address", "currency", "amount", "note", "created_at", "status"]);
 
         if ($Client["status"] == "waiting") {
@@ -188,7 +198,7 @@ class ClientController extends Controller
             $checkoutFormInitialize = \Iyzipay\Model\CheckoutFormInitialize::create($request, $options);
             $myform = $checkoutFormInitialize->getCheckoutFormContent();
         } else {
-            $myform = "Your depostit already payed";
+            $myform = "";
         }
 
         // return Inertia::render('Frontend/Client/Order', [

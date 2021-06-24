@@ -24,7 +24,7 @@ Route::get('/', function () {
     //     'laravelVersion' => Application::VERSION,
     //     'phpVersion' => PHP_VERSION,
     // ]);
-    return redirect('dashboard');
+    return redirect('welcome');
 });
 
 Route::get('/dashboard', function () {
@@ -54,7 +54,8 @@ Route::get('/test2', function () {
 Route::resource('page', PageController::class)->middleware(['auth', 'verified']);
 Route::resource('client', ClientController::class)->middleware(['auth', 'verified']);
 
-Route::get('/order/{id}', [ClientController::class,'order'])->name('order');
+Route::get('/payment/{id}', [ClientController::class,'order'])->name('order');
+Route::get('/welcome', [ClientController::class,'welcome'])->name('welcome');
 Route::post('/iyzicocallback', [ClientController::class,'iyzicocallback'])->name('iyzicocallback');
 
 require __DIR__ . '/auth.php';

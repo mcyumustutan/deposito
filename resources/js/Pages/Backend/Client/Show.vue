@@ -1,5 +1,26 @@
 <template>
   <PulsarVue title="Müşteri Bilgileri">
+    <div class="space-y-4 mb-4">
+      <a
+        class="
+          block
+          text-sm
+          bg-blue-500
+          hover:bg-blue-700
+          border-blue-200
+          hover:border-blue-700
+          border-4
+          text-white
+          py-1
+          px-2
+          rounded
+        "
+        target="_blank"
+        :href="url"
+        >Müşteri Ödeme Linki</a
+      >
+    </div>
+
     <form @submit.prevent="update">
       <div>
         <p :class="'customer-badge status-' + this.client.status">
@@ -168,8 +189,8 @@
         <div class="-mx-3 md:flex mb-6">
           <div class="px-3 w-full">
             <BreezeLabel for="note" value="Note"></BreezeLabel>
-            
-            <Editor v-model="form.note" editorStyle="height: 320px"/>
+
+            <Editor v-model="form.note" editorStyle="height: 320px" />
           </div>
         </div>
 
@@ -204,13 +225,15 @@
 import PulsarVue from "../../../Layouts/Pulsar.vue";
 import BreezeLabel from "../../../Components/Label.vue";
 import myInput from "../../../Components/Input.vue";
-import Editor from 'primevue/editor';
+import Editor from "primevue/editor";
 export default {
   created() {
-    document.title = document.title + " - Müşteri Bilgileri";
+    document.title = document.title + " - MüşteriMüşteri Bilgileri";
   },
   props: {
     client: Object,
+    url: String,
+    decrypted: String,
   },
   data() {
     return {
@@ -238,7 +261,9 @@ export default {
       this.form.city = value;
     },
     update() {
-      this.form.put(this.route("client.update", this.client.id));
+      if (this.client.status != "success") {
+        this.form.put(this.route("client.update", this.client.id));
+      }
     },
     destroy() {
       if (confirm("Are you sure you want to delete this contact?")) {
