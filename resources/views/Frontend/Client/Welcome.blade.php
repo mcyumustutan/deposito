@@ -65,7 +65,7 @@
   </style>
 </head>
 
-<body class="gradient leading-relaxed tracking-wide flex flex-col">
+<body class="gradient leading-relaxed tracking-wide flex flex-col h-screen">
   <!--Nav-->
   <nav id="header" class="w-full z-30 top-0 text-white py-1 lg:py-6">
     <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-2 py-2 lg:py-6">
@@ -98,7 +98,7 @@
 
 
   <!--Footer-->
-  <footer class="bg-white ">
+  <footer class="bg-white mt-auto mb-0 ml-0 mr-0">
     <div class="container mx-auto mt-8 px-8">
       <div class="w-full flex flex-col md:flex-row py-6">
         <div class="flex-1 mb-6 p-4">
