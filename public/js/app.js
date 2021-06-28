@@ -17649,9 +17649,8 @@ __webpack_require__.r(__webpack_exports__);
       this.form.city = value;
     },
     update: function update() {
-      if (this.client.status != "success") {
-        this.form.put(this.route("client.update", this.client.id));
-      }
+      // if (this.client.status != "success") {
+      this.form.put(this.route("client.update", this.client.id)); // }
     },
     destroy: function destroy() {
       if (confirm("Are you sure you want to delete this contact?")) {

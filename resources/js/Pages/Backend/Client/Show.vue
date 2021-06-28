@@ -261,9 +261,9 @@ export default {
       this.form.city = value;
     },
     update() {
-      if (this.client.status != "success") {
+     // if (this.client.status != "success") {
         this.form.put(this.route("client.update", this.client.id));
-      }
+     // }
     },
     destroy() {
       if (confirm("Are you sure you want to delete this contact?")) {

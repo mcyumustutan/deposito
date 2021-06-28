@@ -9,6 +9,8 @@ use Inertia\Inertia;
 use App\Models\Client;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Crypt;
+use Notification;
+use App\Notifications\BillingNotification;
 
 class ClientController extends Controller
 {
@@ -224,13 +226,46 @@ class ClientController extends Controller
 
         $checkoutForm = \Iyzipay\Model\CheckoutForm::retrieve($request, $options);
 
+        $Client = null;
+
         if ($checkoutForm->getFraudStatus() === 1 && $checkoutForm->getPaymentStatus() === "SUCCESS") {
             $Client = Client::find($checkoutForm->getBasketId());
             $Client->status = 'success';
             $Client->save();
-            return redirect()->route('order', ['id' => $checkoutForm->getBasketId()])->with('success', 'Deposit successful!');
+
+            $crypted = Crypt::encryptString($checkoutForm->getBasketId(), false);
+            
+            
+            $billData = [
+                'name' => '#007 Bill',
+                'body' => 'You have received a new bill.',
+                'thanks' => 'Thank you',
+                'text' => '$600',
+                'url' => url('/'),
+                'bill_id' => 30061,
+                'result' => 'success',
+            ];
+
+            Notification::send($Client, new BillingNotification($billData));
+
+            return redirect()->route('order', ['id' => $crypted])->with('success', 'Deposit successful!');
+            
         } else {
-            return redirect()->route('order', ['id' => $checkoutForm->getBasketId()])->with('error', 'Somethings wrent wrong! Plese, contact seller.');
+
+            
+            $billData = [
+                'name' => '#007 Bill',
+                'body' => 'You have received a new bill.',
+                'thanks' => 'Thank you',
+                'text' => '$600',
+                'url' => url('/'),
+                'bill_id' => 30061,
+                'result' => 'error',
+            ];
+
+            Notification::send($Client, new BillingNotification($billData));
+
+            return redirect()->route('order', ['id' => $crypted])->with('error', 'Somethings wrent wrong! Plese, contact seller.');
         }
     }
 }
