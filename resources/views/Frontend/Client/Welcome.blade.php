@@ -12,60 +12,10 @@
 
   <link href="https://unpkg.com/tailwindcss/dist/tailwind.min.css" rel="stylesheet" />
   <link href="https://unpkg.com/@tailwindcss/custom-forms/dist/custom-forms.min.css" rel="stylesheet" />
-
-  <style>
-    @import url("https://rsms.me/inter/inter.css");
-
-    html {
-      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
-        Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
-        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
-        "Noto Color Emoji";
-    }
-
-    .gradient {
-      background-image: linear-gradient(-225deg, #cbbacc 0%, #2580b3 100%);
-    }
-
-    button,
-    .gradient2 {
-      background-color: #f39f86;
-      background-image: linear-gradient(315deg, #f39f86 0%, #f9d976 74%);
-    }
-
-    /* Browser mockup code
- * Contribute: https://gist.github.com/jarthod/8719db9fef8deb937f4f
- * Live example: https://updown.io
- */
-
-    .browser-mockup {
-      border-top: 2em solid rgba(230, 230, 230, 0.7);
-      position: relative;
-      height: 60vh;
-    }
-
-    .browser-mockup:before {
-      display: block;
-      position: absolute;
-      content: "";
-      top: -1.25em;
-      left: 1em;
-      width: 0.5em;
-      height: 0.5em;
-      border-radius: 50%;
-      background-color: #f44;
-      box-shadow: 0 0 0 2px #f44, 1.5em 0 0 2px #9b3, 3em 0 0 2px #fb5;
-    }
-
-    .browser-mockup>* {
-      display: block;
-    }
-
-    /* Custom code for the demo */
-  </style>
+ 
 </head>
 
-<body class="gradient leading-relaxed tracking-wide flex flex-col h-screen">
+<body class="bg-gradient-to-r from-gray-400 to-blue-300 flex flex-col h-screen text-white">
   <!--Nav-->
   <nav id="header" class="w-full z-30 top-0 text-white py-1 lg:py-6">
     <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-2 py-2 lg:py-6">
