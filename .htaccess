@@ -2,7 +2,7 @@ DirectoryIndex index.php
 <IfModule mod_rewrite.c>
 
     RewriteEngine On
-    RewriteBase /pulsar21/public
+    RewriteBase /
 
     RewriteRule ^$ public/index.php [L]
 
