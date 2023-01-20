@@ -136,8 +136,8 @@ class ClientController extends Controller
 
         if ($Client["status"] == "waiting") {
             $options = new \Iyzipay\Options();
-            $options->setApiKey("sandbox-LnSeZWIkNClnDNFnwrCwmSkRKoglwQ1i");
-            $options->setSecretKey("sandbox-6BixudNvUcIFfJjJkLUcIVLxfALBx8tC");
+            $options->setApiKey("sandbox-xxxxxxxxxx");
+            $options->setSecretKey("sandbox-xxxxxxx");
             $options->setBaseUrl("https://sandbox-api.iyzipay.com");
             # create request class
             $request = new \Iyzipay\Request\CreateCheckoutFormInitializeRequest();
@@ -216,8 +216,8 @@ class ClientController extends Controller
     public function iyzicocallback(Request $r)
     {
         $options = new \Iyzipay\Options();
-        $options->setApiKey("sandbox-LnSeZWIkNClnDNFnwrCwmSkRKoglwQ1i");
-        $options->setSecretKey("sandbox-6BixudNvUcIFfJjJkLUcIVLxfALBx8tC");
+        $options->setApiKey("sandbox-xxxxxxxxxxx");
+        $options->setSecretKey("sandbox-xxxxxxxx");
         $options->setBaseUrl("https://sandbox-api.iyzipay.com");
 
         $request = new \Iyzipay\Request\RetrieveCheckoutFormRequest();
